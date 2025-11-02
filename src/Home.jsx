@@ -4,6 +4,7 @@ import "./styles.css";
 import "leaflet/dist/leaflet.css";
 import fondo from "./assets/fondoGrennPoint.jpg";
 import logo from "./assets/Logo.png";
+import plantas from "./assets/plantasboton.png"; // importamos la imagen
 
 export default function Home() {
   const mapRef = useRef(null);
@@ -95,6 +96,12 @@ export default function Home() {
           <div ref={mapRef} className="mapa" />
         </div>
       </section>
+        <div className="container-boton">
+          <button className="boton-cambio">
+            <img src={plantas} alt="Plantitas" className="boton-img" />
+            <span className="boton-texto">¡Quiero empezar mi cambio!</span>
+          </button>
+        </div>
     </div>
   );
 }

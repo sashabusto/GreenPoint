@@ -114,10 +114,50 @@ body {
   max-width: 1200px;
   height: 100%; /* llenar contenedor padre */
   border-radius: 12px;
+  border: 20px solid #6f9e6f;
 }
 
 /* Leaflet */
 .leaflet-container {
   width: 100% !important;
   height: 100% !important;
+}
+.container-boton {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente */
+        /* altura completa de la pantalla */
+  background-color: #a4cfcd; /* reemplazá con el color de fondo que estás usando */
+}
+
+.boton-cambio {
+    margin-top: 15px; 
+  position:relative;
+  align-items: center;
+  background-color: #f1fab4;
+  border: none;
+  padding: 20px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Imagen encima del botón */
+.boton-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: 1; 
+}
+
+
+.boton-texto {
+  position: relative;
+  z-index: 2;
+  color: #19671a; 
 }
