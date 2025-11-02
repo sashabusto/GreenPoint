@@ -1,0 +1,143 @@
+/* Contenedor principal */
+body{
+    background-color: #f0fff2;
+}
+
+.navbar {
+  position: absolute !important;
+  top: 0;
+  width: 100%;
+  padding: 5px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  height: 200px;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* espacio pequeño entre icono y texto */
+}
+
+.user-icon .material-symbols-outlined {
+  font-size: 50px;
+  color: #19671a;
+} 
+
+
+.inicio-link {
+  text-decoration: none; /* quita el subrayado */
+  color: #19671a;
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.inicio-link:hover {
+  color: #2e7d32;
+  cursor: pointer;
+}
+
+.container {
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.mb-4{
+    margin-bottom: 0px !important;
+}
+/* Título */
+h2 {
+    margin-top: 130px;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    color: #2e7d32;
+    font-size: 100px;
+}
+.ptitulo{
+    text-align: center;
+    color: #2e7d32;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 30px
+}
+
+.iconotitulo {
+  position: absolute;
+  top: 180px;
+  left: 424px;
+  transform: rotate(20deg);
+  font-size: 40px;
+  color: #19671a;
+}
+
+/* Grid de las cards */
+.card-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  gap: 1.5rem; /* espacio entre cards */
+}
+
+/* Cada card */
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Card body */
+.card-body {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.card-title {
+  color: #1b5e20;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Card footer */
+.card-footer {
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  font-size: 0.8rem;
+  text-align: right;
+  color: #666;
+}
+
+/* Responsivo: 2 columnas en tablets, 1 columna en móviles */
+@media (max-width: 992px) {
+  .card-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .card-group {
+    grid-template-columns: 1fr;
+  }
+}

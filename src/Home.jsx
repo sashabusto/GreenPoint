@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ IMPORTANTE
 import L from "leaflet";
 import "./styles.css";
 import "leaflet/dist/leaflet.css";
@@ -8,9 +9,10 @@ import plantas from "./assets/plantasboton.png";
 import ecoImg from "./assets/diamundialecologia.jpg";
 
 export default function Home() {
+  const navigate = useNavigate(); // ✅ PARA NAVEGAR
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
-  const [showEco, setShowEco] = useState(true); // <-- para mostrar/ocultar contenedor
+  const [showEco, setShowEco] = useState(true);
 
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
@@ -95,7 +97,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Botón */}
+      {/* Botón principal */}
       <div className="container-boton">
         <button className="boton-cambio">
           <img src={plantas} alt="Plantitas" className="boton-img" />
@@ -114,17 +116,18 @@ export default function Home() {
         </div>
       )}
 
+      {/* Data bar */}
       <div className="data-bar">
-        {/* Dato a la izquierda */}
         <div className="data-left">
-          <p><strong>¡Dato Impactante! 🌱</strong> Cada año se producen más de 300 millones de toneladas de plástico en el mundo. Reciclar una sola botella de plástico puede ahorrar suficiente energía para mantener encendida una bombilla de 60W durante 6 horas. 🌿 Pequeñas acciones como separar tus residuos, reutilizar y reducir el consumo diario tienen un impacto enorme en nuestro planeta. <strong> ¡Comenzá hoy y hacé la diferencia! 🌿</strong></p>
+          <p>🌱Las <strong>Botellas de Amor</strong> son botellas plásticas (como las de gaseosa o agua) que se rellenan con residuos plásticos que normalmente no se pueden reciclar, como bolsas, envoltorios de golosinas o envases flexibles. La idea es compactar todos esos plásticos dentro de la botella para darles una segunda vida. Es una forma creativa de reciclar materiales que normalmente serían basura. 💚<strong> ¡Comenzá hoy y hacé la diferencia! 🌿</strong></p>
         </div>
 
-        {/* 3 botones a la derecha */}
         <div className="buttons-right">
-          <button className="btn-small">Para qué sirve reciclar?</button>
+          <button className="btn-small">¿Para qué sirve reciclar?</button>
           <button className="btn-large">Registra tus reciclajes!</button>
-          <button className="btn-small">Qué materiales puedo reciclar?</button>
+          <button className="btn-small" onClick={() => navigate("/materiales")}>
+            ¿Qué materiales puedo reciclar?
+          </button>
         </div>
       </div>
     </div>

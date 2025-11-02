@@ -14,7 +14,7 @@ body {
 
 /* Barra superior */
 .navbar {
-  position: absolute;
+  position: absolute !important;
   top: 0;
   width: 100%;
   padding: 15px 40px;
@@ -234,7 +234,7 @@ body {
   height: 500px;
   width: 800px;
   margin:  20px;
-  padding: 60px;
+  padding: 45px;
   text-align: center;
   align-items: center;
   border-radius: 10px;
