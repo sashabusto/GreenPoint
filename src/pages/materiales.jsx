@@ -1,16 +1,16 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import "./materiales.css";
-import logo from "./assets/Logo.png";
-import plastico from "./assets/plastico.png";
-import papelycarton from "./assets/papelycarton.jpg";
-import vidrio from "./assets/vidrio.jpg";
-import metal from "./assets/metales.jpg";
-import ropaytela from "./assets/ropa.jpg";
-import aceite from "./assets/aceite.png";
-import pila from "./assets/pilas.png";
-import raees from "./assets/RAEES.jpg";
+import "../materiales.css";
+import logo from "../assets/Logo.png";
+import plastico from "../assets/plastico.png";
+import papelycarton from "../assets/papelycarton.jpg";
+import vidrio from "../assets/vidrio.jpg";
+import metal from "../assets/metales.jpg";
+import ropaytela from "../assets/ropa.jpg";
+import aceite from "../assets/aceite.png";
+import pila from "../assets/pilas.png";
+import raees from "../assets/RAEES.jpg";
 
 export default function Materiales() {
   return (

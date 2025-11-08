@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ IMPORTANTE
+import { useNavigate, Link } from "react-router-dom"; // ✅ IMPORTANTE
 import L from "leaflet";
 import "./styles.css";
 import "leaflet/dist/leaflet.css";
@@ -63,7 +63,9 @@ export default function Home() {
       <header className="navbar">
         <img src={logo} alt="Logo GreenPoint" className="logo" />
         <div className="user-icon">
-          <span className="material-symbols-outlined">account_circle</span>
+          <Link to="/Login">
+            <span className="material-symbols-outlined">account_circle</span>
+          </Link>
         </div>
       </header>
 

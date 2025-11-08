@@ -1,22 +1,19 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import Login from "./Login";
-import Materiales from "./materiales"; // <-- Nuevo componente
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Materiales from "./pages/materiales";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  //const [loggedIn, setLoggedIn] = useState(true);
 
-  // Si NO está logueado → solo mostramos Login
-  if (!loggedIn) {
-    return <Login onLogin={() => setLoggedIn(true)} />;
-  }
-
-  // Si está logueado → mostramos las rutas
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Login" element={<Login />} />  
+        <Route path="/register" element={<Register />} />  
         <Route path="/materiales" element={<Materiales />} />
       </Routes>
     </Router>
