@@ -1,39 +1,90 @@
-/* Reinicio básico */
+/* ============================= */
+/* 🌿 REINICIO BÁSICO */
+/* ============================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 body {
   font-family: "Poppins", sans-serif;
   color: #1e1e1e;
   overflow-x: hidden;
+  margin-bottom: 0px  !important;
+/* espacio para la navbar fija */
 }
 
-/* Barra superior */
+/* ============================= */
+/* 🌱 NAVBAR MEJORADA CON MENÚ */
+/* ============================= */
 .navbar {
-  position: absolute !important;
+  position: fixed;
   top: 0;
   width: 100%;
-  padding: 15px 40px;
+  padding: 8px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
+  
+  z-index: 1000;
 }
 
 .logo {
-  height: 250px;
+  height: 120px !important;
+  cursor: pointer;
 }
 
-.user-icon .material-symbols-outlined {
-  font-size: 50px;
+/* Contenedor de enlaces del menú */
+.menu-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Botones del menú */
+.menu-links button {
+  background: none;
+  border: none;
   color: #19671a;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Hero con imagen de fondo */
+.menu-links button:hover {
+  color: #1b5e20;
+  transform: translateY(-2px);
+}
+
+/* Enlace de inicio de sesión */
+.login-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #19671a;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-link:hover {
+  color: #1b5e20;
+  transform: translateY(-2px);
+}
+
+/* Ícono de cuenta */
+.login-link .material-symbols-outlined {
+  font-size: 36px;
+}
+
+/* ============================= */
+/* 🌿 HERO CON IMAGEN DE FONDO */
+/* ============================= */
 .hero {
   position: relative;
   height: 900px;
@@ -74,7 +125,9 @@ body {
   font-family: "Cormorant Garamond", serif;
 }
 
-/* Sección del mapa */
+/* ============================= */
+/* 🗺️ SECCIÓN DEL MAPA */
+/* ============================= */
 .MapaReciclar {
   position: relative;
   text-align: center;
@@ -104,7 +157,7 @@ body {
 /* Contenedor del mapa */
 .mapa-container {
   width: 100%;
-  height: 500px; /* altura obligatoria para Leaflet */
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +166,7 @@ body {
 .mapa {
   width: 90%;
   max-width: 1200px;
-  height: 100%; /* llenar contenedor padre */
+  height: 100%;
   border-radius: 12px;
   border: 20px solid #6f9e6f;
 }
@@ -123,18 +176,20 @@ body {
   width: 100% !important;
   height: 100% !important;
 }
+
+/* ============================= */
+/* 🌸 BOTÓN "¡QUIERO EMPEZAR MI CAMBIO!" */
+/* ============================= */
 .container-boton {
   display: flex;
-  justify-content: center; /* centra horizontalmente */
-  align-items: center;     /* centra verticalmente */
-        /* altura completa de la pantalla */
-  background-color: #a4cfcd; /* reemplazá con el color de fondo que estás usando */
+  justify-content: center;
+  align-items: center;
+  background-color: #a4cfcd;
 }
 
-
 .boton-cambio {
-    margin-top: 15px; 
-  position:relative;
+  margin-top: 15px;
+  position: relative;
   align-items: center;
   background-color: #f1fab4;
   border: none;
@@ -144,51 +199,49 @@ body {
   cursor: pointer;
   border-radius: 12px;
   overflow: hidden;
-    animation: slideUpFade 0.8s ease forwards;
+  animation: slideUpFade 0.8s ease forwards;
   transition: all 0.3s ease;
 }
 
 .boton-cambio:hover {
-  transform: scale(1.05); /* crece un poco */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* sombra más visible */
-  transition: all 0.3s ease;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Imagen encima del botón */
 .boton-img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  z-index: 1; 
+  object-fit: cover;
+  z-index: 1;
 }
-
 
 .boton-texto {
   position: relative;
   z-index: 2;
-  color: #19671a; 
+  color: #19671a;
 }
 
-
+/* ============================= */
+/* 🌏 DÍA MUNDIAL DE LA ECOLOGÍA */
+/* ============================= */
 .eco-container {
-  position: fixed;       /* fija el contenedor en la pantalla */
-  bottom: 20px;          /* distancia desde abajo */
-  left: 20px;            /* distancia desde la izquierda */
-  background-color: rgba(255, 255, 255, 0.9); /* fondo semitransparente */
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 250px;
   text-align: center;
-  opacity: 0;            /* empieza invisible */
-  transform: translateY(20px); /* empieza un poco abajo */
-  animation: fadeInUp 1s forwards; /* animación */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
 }
 
-/* Animación de aparición */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -218,14 +271,16 @@ body {
   color: #555;
 }
 
+/* ============================= */
+/* 📊 DATA BAR */
+/* ============================= */
 .data-bar {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  background-color: rgba(255,255,255,0.95);
+  background-color: #a4cfcd;
   padding: 10px 100px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background-color: #a4cfcd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Dato a la izquierda */
@@ -233,7 +288,7 @@ body {
   background-color: #bfe8ba;
   height: 500px;
   width: 800px;
-  margin:  20px;
+  margin: 20px;
   padding: 45px;
   text-align: center;
   align-items: center;
@@ -242,7 +297,6 @@ body {
   font-weight: bold;
   color: #2e7d32;
 }
-
 
 /* Botones a la derecha */
 .buttons-right {
@@ -264,8 +318,8 @@ body {
   border-radius: 20px;
   font-size: 30px;
   cursor: pointer;
-    font-family: "Bebas Neue", sans-serif;
-    animation: slideUpFade 0.8s ease forwards;
+  font-family: "Bebas Neue", sans-serif;
+  animation: slideUpFade 0.8s ease forwards;
   transition: all 0.3s ease;
 }
 
@@ -274,7 +328,7 @@ body {
   background-color: #19671a;
   color: white;
   border: none;
-    width: 478px;
+  width: 478px;
   height: 146px;
   border-radius: 20px;
   font-size: 36px;
@@ -286,8 +340,8 @@ body {
   transition: all 0.3s ease;
 }
 
-.btn-small:hover, .btn-large:hover {
-  transform: scale(1.05); /* crece un poco */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* sombra más visible */
-  transition: all 0.3s ease;
+.btn-small:hover,
+.btn-large:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }

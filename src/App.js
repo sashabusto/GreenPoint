@@ -4,6 +4,7 @@ import Home from "./Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Materiales from "./pages/materiales";
+import PorqueReciclo from "./pages/porquereciclo"
 
 function App() {
   //const [loggedIn, setLoggedIn] = useState(true);
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Login" element={<Login />} />  
         <Route path="/register" element={<Register />} />  
         <Route path="/materiales" element={<Materiales />} />
+        <Route path="/porquereciclo" element={<PorqueReciclo />} />
       </Routes>
     </Router>
   );
