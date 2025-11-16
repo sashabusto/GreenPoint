@@ -145,7 +145,17 @@ export default function Home() {
 
       {/* Botón principal */}
       <div id="boton-cambio" className="container-boton">
-        <button className="boton-cambio">
+        <button
+          className="boton-cambio"
+          onClick={() => {
+            const usuario = localStorage.getItem("usuarioActivo");
+            if (usuario) {
+              navigate("/registrarMateriales"); // si inició sesión
+            } else {
+              navigate("/login"); // si NO inició sesión
+          }
+          }}
+        >
           <img src={plantas} alt="Plantitas" className="boton-img" />
           <span className="boton-texto">¡Quiero empezar mi cambio!</span>
         </button>
@@ -181,7 +191,7 @@ export default function Home() {
 
         <div className="buttons-right">
           <button className="btn-small" onClick={() => navigate("/porquereciclo")}>¿Para qué sirve reciclar?</button>
-          <button className="btn-large" >Registra tus reciclajes!</button>
+          <button className="btn-large" onClick={() => navigate("/registrarMateriales")}>Registra tus reciclajes!</button>
           <button className="btn-small" onClick={() => navigate("/materiales")}>
             ¿Qué materiales puedo reciclar?
           </button>

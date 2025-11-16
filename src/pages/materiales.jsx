@@ -17,13 +17,58 @@ export default function Materiales() {
     <div>
       {/* Navbar */}
       <header className="navbar">
-        <img src={logo} alt="Logo GreenPoint" className="logo" />
-        
-        <div className="user-icon">
-        <Link to="/" className="inicio-link">Inicio</Link>
-          <span className="material-symbols-outlined">account_circle</span>
-          
+        <nav
+        className="navbar navbar-expand-lg fixed-top custom-navbar"
+        style={{
+          backgroundColor: "rgba(164, 207, 205, 0.85)",
+          backdropFilter: "blur(6px)",
+        }}
+      >
+        <div className="container-fluid px-4">
+          <Link className="navbar-brand d-flex align-items-center" to="/">
+            <img src={logo} alt="GreenPoint" className="logo" />
+          </Link>
+
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul className="navbar-nav align-items-center">
+              <li className="nav-item">
+                <Link className="nav-link" to="/">
+                  Inicio
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/registrarMateriales">
+                  Registrar Materiales
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/porquereciclo">
+                  ¿Para qué sirve reciclar?
+                </Link>
+              </li>
+
+                <li className="nav-item">
+                    <Link to="/login" className="nav-link d-flex align-items-center">
+                        <span className="material-symbols-outlined me-1">account_circle</span>
+                        Iniciar sesión
+                    </Link>
+                </li>
+            </ul>
+          </div>
         </div>
+      </nav>
       </header>
     <div className="container mt-4">
         <h2 className="text-center mb-4">¿Que materiales puedo reciclar?</h2>
@@ -68,7 +113,7 @@ export default function Materiales() {
         <div className="card">
             <img src={ropaytela} className="card-img-top" alt="Ropa y tela" />
             <div className="card-body">
-            <h5 className="card-title">Papel y Cartón</h5>
+            <h5 className="card-title">Ropa y Tela</h5>
             <p className="card-text">Trapos, sábanas, manteles viejos y ropa en desuso que no estén en condiciones de ser donados.</p>
             </div>
         </div>

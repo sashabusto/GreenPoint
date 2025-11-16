@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../css/register.css";
 import fondoRegistro from "../assets/fondoregistro.jpg";
+import logo from "../assets/Logo.png";
 
 export default function Register() {
   const [nombre, setNombre] = useState("");
@@ -21,7 +22,7 @@ export default function Register() {
         body: JSON.stringify({
           nombre: nombre,
           email: email,
-          contrasena: password, // el nombre debe coincidir con el de tu PHP
+          contrasena: password,
         }),
       });
 
@@ -40,9 +41,36 @@ export default function Register() {
   };
 
   return (
-    <div className="auth-page" style={{ backgroundImage: `url(${fondoRegistro})` }}>
-      <div className="auth-container">
+    <div
+      className="auth-page-register"
+      style={{ backgroundImage: `url(${fondoRegistro})` }}
+    >
+
+      {/* NAVBAR*/}
+      <nav
+        className="navbar navbar-expand-lg navbar_register"
+      >
+        <div className="container-fluid px-4">
+          <Link to="/" className="navbar-brand d-flex align-items-center">
+            <img src={logo} alt="GreenPoint" height="80" />
+          </Link>
+
+          <div className="collapse navbar-collapse justify-content-end">
+            <ul className="navbar-nav">
+              <li className="nav-item mx-2">
+                <Link to="/" className="nav-inicio-link">
+                  Inicio
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* CONTENEDOR A LA DERECHA */}
+      <div className="contenedor-register">
         <h2>Registrarse</h2>
+
         <form onSubmit={handleRegister}>
           <input
             type="text"
@@ -65,9 +93,11 @@ export default function Register() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+
           <button type="submit">Registrarse</button>
         </form>
-        <p>
+
+        <p className="register-link">
           ¿Ya tenés cuenta? <Link to="/Login">Iniciá sesión</Link>
         </p>
       </div>
