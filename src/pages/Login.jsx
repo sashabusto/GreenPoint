@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../css/login.css";
-import fondoLogin from "../assets/fondologin.png";
+import fondoLogin from "../assets/fondologin.jpg";
 import logo from "../assets/Logo.png";
 
 export default function Login() {
