@@ -6,7 +6,9 @@ header("Content-Type: application/json");
 include("conexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $data = json_decode(file_get_contents("php://input"), true);
+
     $email = $data["email"];
     $contrasena = $data["contrasena"];
 
@@ -18,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $usuario = $result->fetch_assoc();
+
         echo json_encode([
             "success" => true,
             "email" => $usuario["email"],

@@ -16,7 +16,7 @@ export default function Login() {
 
     try {
       const response = await fetch(
-        "http://localhost/greenpoint-backend/login.php",
+        "http://grupo4.practicas.local/php/login.php", //lo de grupo4.practicas.local cambia segun mi url
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

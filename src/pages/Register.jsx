@@ -5,7 +5,7 @@ import fondoRegistro from "../assets/fondoregistro.jpg";
 import logo from "../assets/Logo.png";
 
 export default function Register() {
-  const [nombre, setNombre] = useState("");
+  const [nombre, setNombre] = useState("");   // Se muestra pero NO se envía
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -14,13 +14,12 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost/greenpoint-backend/register.php", {
+      const response = await fetch("http://grupo4.practicas.local/php/register.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          nombre: nombre,
           email: email,
           contrasena: password,
         }),
@@ -47,9 +46,7 @@ export default function Register() {
     >
 
       {/* NAVBAR*/}
-      <nav
-        className="navbar navbar-expand-lg navbar_register"
-      >
+      <nav className="navbar navbar-expand-lg navbar_register">
         <div className="container-fluid px-4">
           <Link to="/" className="navbar-brand d-flex align-items-center">
             <img src={logo} alt="GreenPoint" height="80" />
@@ -67,7 +64,7 @@ export default function Register() {
         </div>
       </nav>
 
-      {/* CONTENEDOR A LA DERECHA */}
+      {/* FORM */}
       <div className="contenedor-register">
         <h2>Registrarse</h2>
 

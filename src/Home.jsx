@@ -61,6 +61,14 @@ export default function Home() {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+  //Abre otra pestana para el Leaflet del mapa:
+  setTimeout(() => {
+  const leafletLink = document.querySelector(".leaflet-control-attribution a");
+  if (leafletLink) {
+    leafletLink.setAttribute("target", "_blank");
+    leafletLink.setAttribute("rel", "noopener noreferrer");
+  }
+}, 500);
 
   return (
     <div>
