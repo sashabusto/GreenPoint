@@ -6,6 +6,8 @@ import Register from "./pages/Register";
 import Materiales from "./pages/materiales";
 import PorqueReciclo from "./pages/porquereciclo"
 import RegistrarMateriales from "./pages/RegistrarMateriales";
+import Usermenu from "./components/UserMenu";
+import MisMateriales from "./pages/MisMateriales";
 
 function App() {
   //const [loggedIn, setLoggedIn] = useState(true);
@@ -19,6 +21,9 @@ function App() {
         <Route path="/materiales" element={<Materiales />} />
         <Route path="/porquereciclo" element={<PorqueReciclo />} />
         <Route path="/registrarMateriales" element={<RegistrarMateriales />} />
+        <Route path="/UserMenu" element={<Usermenu />} />
+        <Route path="/misMateriales" element={<MisMateriales />} />
+
       </Routes>
     </Router>
   );

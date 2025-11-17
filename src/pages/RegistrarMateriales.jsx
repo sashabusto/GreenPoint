@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-
+import UserMenu from "../components/UserMenu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/RegistrarMateriales.css";
 import { Link } from "react-router-dom";
@@ -123,7 +123,7 @@ export default function RegistrarMateriales() {
         <nav
             className="navbar navbar-expand-lg fixed-top custom-navbar"
             style={{
-                backgroundColor: "rgba(164, 207, 205, 0.85)",
+                backgroundColor: "rgba(192, 236, 236, 0.85)",
                 backdropFilter: "blur(6px)",
             }}
         >
@@ -134,7 +134,7 @@ export default function RegistrarMateriales() {
                 className="navbar-brand d-flex align-items-center"
                 style={{ cursor: "pointer" }}
             >
-                <img src={logo} alt="GreenPoint" height="180" />
+                <img src={logo} alt="GreenPoint" height="70" />
             </Link>
 
             <button
@@ -149,14 +149,26 @@ export default function RegistrarMateriales() {
             <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul className="navbar-nav align-items-center">
 
-                <li className="nav-item mx-2">
-                    <Link
-                    to="/"
-                    className="nav-link fw-bold"
-                    style={{ fontSize: "18px" }}
-                    >
-                    Inicio
+                <li className="nav-item">
+                    <Link className="nav-link" to="/">
+                        Inicio
                     </Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link className="nav-link" to="/porquereciclo">
+                        ¿Para qué sirve reciclar?
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link className="nav-link" to="/Materiales">
+                        ¿Qué materiales puedo reciclar?
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                    <UserMenu />    
                 </li>
 
                 </ul>

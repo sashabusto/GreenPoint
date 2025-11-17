@@ -7,6 +7,7 @@ import fondo from "./assets/fondoGrennPoint.jpg";
 import logo from "./assets/Logo.png";
 import plantas from "./assets/plantasboton.png";
 import ecoImg from "./assets/diamundialecologia.jpg";
+import UserMenu from "./components/UserMenu";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -109,12 +110,17 @@ export default function Home() {
                   Ver mapa
                 </button>
               </li>
+              {/* Si NO hay usuario → mostrar botón Iniciar sesión */}
+              {!localStorage.getItem("usuarioActivo") && (
               <li className="nav-item">
                 <Link to="/login" className="nav-link d-flex align-items-center">
                   <span className="material-symbols-outlined me-1">account_circle</span>
                   Iniciar sesión
                 </Link>
               </li>
+            )}
+              {/* Si SÍ hay usuario → mostrar UserMenu */}
+              {localStorage.getItem("usuarioActivo") && <UserMenu />}
             </ul>
           </div>
         </div>

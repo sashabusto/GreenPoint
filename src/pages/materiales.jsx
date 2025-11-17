@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import "../materiales.css";
+import UserMenu from "../components/UserMenu";
 import logo from "../assets/Logo.png";
 import plastico from "../assets/plastico.png";
 import papelycarton from "../assets/papelycarton.jpg";
@@ -58,12 +59,18 @@ export default function Materiales() {
                   ¿Para qué sirve reciclar?
                 </Link>
               </li>
-
                 <li className="nav-item">
-                    <Link to="/login" className="nav-link d-flex align-items-center">
+                  {/* Si NO hay usuario → mostrar botón Iniciar sesión */}
+                  {!localStorage.getItem("usuarioActivo") && (
+                    <li className="nav-item">
+                      <Link to="/login" className="nav-link d-flex align-items-center">
                         <span className="material-symbols-outlined me-1">account_circle</span>
                         Iniciar sesión
-                    </Link>
+                      </Link>
+                    </li>
+                  )}
+                  {/* Si SÍ hay usuario → mostrar UserMenu */}
+                  {localStorage.getItem("usuarioActivo") && <UserMenu />}
                 </li>
             </ul>
           </div>

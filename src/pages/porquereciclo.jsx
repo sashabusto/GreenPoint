@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/porquereciclo.css";
+import UserMenu from "../components/UserMenu";
 import logo from "../assets/Logo.png"; 
 import { Link } from "react-router-dom";
 
@@ -8,7 +9,8 @@ export default function PorqueReciclo() {
   return (
     <div>
       {/* 🌿 Navbar */}
-      <nav
+      <header className="navbar">
+        <nav
         className="navbar navbar-expand-lg fixed-top custom-navbar"
         style={{
           backgroundColor: "rgba(164, 207, 205, 0.85)",
@@ -40,15 +42,36 @@ export default function PorqueReciclo() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/materiales">
-                  Materiales reciclables
+                <Link className="nav-link" to="/registrarMateriales">
+                  Registrar Materiales
                 </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Materiales">
+                  ¿Qué materiales puedo reciclar?
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                {/* Si NO hay usuario → mostrar botón Iniciar sesión */}
+                {!localStorage.getItem("usuarioActivo") && (
+                  <li className="nav-item">
+                    <Link to="/login" className="nav-link d-flex align-items-center">
+                      <span className="material-symbols-outlined me-1">account_circle</span>
+                      Iniciar sesión
+                    </Link>
+                  </li>
+                )}
+
+                {/* Si SÍ hay usuario → mostrar UserMenu */}
+                {localStorage.getItem("usuarioActivo") && <UserMenu />}
+
               </li>
             </ul>
           </div>
         </div>
       </nav>
-
+      </header>
       {/* 🌎 Contenido principal */}
       <div className="container my-5">
         <h1 className="text-success text-center mb-4">

@@ -1,4 +1,9 @@
 <?php
+// ==== CORS ====
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+
 session_start();
 if (!isset($_SESSION["rol"]) || $_SESSION["rol"] != "admin") {
     header("Location: index.html");
