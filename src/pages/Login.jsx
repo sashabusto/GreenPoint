@@ -8,22 +8,30 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(""); // para mensajes de error
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    // Limpiar mensaje previo
+    setErrorMsg("");
+
+    // Validación de campos
+    if (!email.trim() || !password.trim()) {
+      setErrorMsg("Por favor completá todos los campos");
+      return;
+    }
+
     setLoading(true);
 
     try {
       const response = await fetch(
-        "http://grupo4.practicas.local/php/login.php", //lo de grupo4.practicas.local cambia segun mi url
+        "http://grupo4.practicas.local/php/login.php",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: email,
-            contrasena: password,
-          }),
+          body: JSON.stringify({ email, contrasena: password }),
         }
       );
 
@@ -33,36 +41,35 @@ export default function Login() {
         localStorage.setItem("usuarioActivo", JSON.stringify(data));
 
         if (data.rol === "admin") {
-          alert("Bienvenido administrador 🌱");
           navigate("/admin");
         } else {
-          alert("Bienvenido usuario 🌿");
           navigate("/");
         }
       } else {
-        alert(data.message || "Correo o contraseña incorrectos");
+        setErrorMsg(data.message || "Correo o contraseña incorrectos");
       }
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
-      alert("Error al conectar con el servidor");
+      setErrorMsg("Error al conectar con el servidor");
     } finally {
       setLoading(false);
     }
   };
+
+  const isFormValid = email.trim() && password.trim();
 
   return (
     <div
       className="auth-page"
       style={{ backgroundImage: `url(${fondoLogin})` }}
     >
-
       {/* NAVBAR */}
       <nav
         className="navbar navbar-expand-lg navbar-light navbar_login"
         style={{
           backgroundColor: "rgba(133, 149, 58, 0.48)",
           backdropFilter: "blur(6px)",
-          padding: "5px 20px",   
+          padding: "5px 20px",
         }}
       >
         <div className="container-fluid px-4">
@@ -74,53 +81,34 @@ export default function Login() {
             <img src={logo} alt="GreenPoint" height="80" />
           </Link>
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul className="navbar-nav align-items-center">
-              <li className="nav-item mx-2">
-                <Link
-                  to="/"
-                  className="nav-inicio-link"
-                  style={{ fontSize: "18px",
-                    color:(255,255,255)
-                  }}
-                >
-                  Inicio
-                </Link>
-              </li>
-            </ul>
-          </div>
-
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/" style={{ color: "white", fontWeight: "bold" }}>
+                Inicio
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
 
       {/* FORM */}
       <div className="auth-container">
         <h2>Iniciar Sesión</h2>
+        {errorMsg && <div className="error-msg">{errorMsg}</div>}
         <form onSubmit={handleLogin}>
           <input
             type="email"
             placeholder="Correo electrónico"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
           <input
             type="password"
             placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={!isFormValid || loading}>
             {loading ? "Ingresando..." : "Ingresar"}
           </button>
         </form>
@@ -128,7 +116,6 @@ export default function Login() {
           ¿No tenés cuenta? <Link to="/Register">Registrate</Link>
         </p>
       </div>
-
     </div>
   );
 }
