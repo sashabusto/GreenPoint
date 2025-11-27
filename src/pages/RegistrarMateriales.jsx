@@ -85,7 +85,7 @@ export default function RegistrarMateriales() {
         }
 
         const registros = seleccionados.map(([mat, data]) => ({
-            Id_login: usuario?.id || 1, // <- usa id del usuario activo
+            Id_login: usuario?.id || 1 , // <- usa id del usuario activo
             tipo_residuo: mat === "Otro" ? "Otro" : mat,
             otro_residuo: mat === "Otro" ? data.nombre : null,
             cantidad: data.cantidad
@@ -122,11 +122,7 @@ export default function RegistrarMateriales() {
         <>
             {/* NAVBAR */}
             <nav
-                className="navbar navbar-expand-lg fixed-top custom-navbar"
-                style={{
-                    backgroundColor: "rgba(192, 236, 236, 0.85)",
-                    backdropFilter: "blur(6px)"
-                }}
+                className="navbar navbar-expand-lg custom-navbar"
             >
                 <div className="container-fluid px-4">
                     <Link

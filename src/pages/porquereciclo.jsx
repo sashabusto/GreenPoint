@@ -9,7 +9,7 @@ export default function PorqueReciclo() {
   return (
     <div>
       {/* 🌿 Navbar */}
-      <header className="navbar">
+      <header className="navbarPQReciclo">
         <nav
         className="navbar navbar-expand-lg fixed-top custom-navbar"
         style={{

@@ -84,7 +84,7 @@ export default function MisMateriales() {
                         <h2 className="text-center mb-4">Mis materiales reciclados</h2>
 
                         {lista.length === 0 ? (
-                            <p className="text-center">Todavía no registraste materiales.</p>
+                            <p className="text-center">Todavía no se han registrado materiales.</p>
                         ) : (
                             <table className="table table-striped table-bordered">
                                 <thead>

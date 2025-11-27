@@ -17,7 +17,19 @@ export default function Materiales() {
   return (
     <div>
       {/* Navbar */}
-      <header className="navbar">
+      <header className="navbarMateriales"
+      style={{
+      width: "100%",
+      height: "95px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: "0 20px",
+      position: "fixed",
+      top: 0,
+      left: 0,
+      zIndex: 1000
+      }}>
         <nav
         className="navbar navbar-expand-lg fixed-top custom-navbar"
         style={{

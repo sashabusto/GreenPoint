@@ -9,25 +9,44 @@ body {
   color: #1e1e1e;
   overflow-x: hidden;
   margin-bottom: 0px  !important;
+  padding-top: 110px;
 /* espacio para la navbar fija */
 }
 
 /* ============================= */
 /* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
+.navbarHome {
   width: 100%;
-  padding: 8px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  height: 95px;
   
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed !important;
+  top: 0;
+  left: 0;
   z-index: 1000;
+}
+.navbar-nav {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 25px;
+}
+
+.navbar-toggler {
+  width: 400px;
+  height: 50px;
+  padding: 8px;
+}
+
+.navbar-toggler-icon {
+  width: 40px;
+  height: 40px;
 }
 
 .logo {
-  height: 120px !important;
+  height: 110px;
   cursor: pointer;
 }
 
@@ -37,6 +56,7 @@ body {
   align-items: center;
   gap: 25px;
 }
+
 
 /* Botones del menú */
 .menu-links button {
@@ -88,7 +108,7 @@ body {
 
 .overlay {
   position: absolute;
-  inset: 0;
+  inset: 0;  
   background-color: rgba(254, 255, 254, 0.337);
 }
 
@@ -270,7 +290,7 @@ body {
   justify-content: space-between;
   align-items: stretch;
   background-color: #a4cfcd;
-  padding: 10px 100px;
+  padding: 10px 200px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -278,7 +298,7 @@ body {
 .data-left p {
   background-color: #bfe8ba;
   height: 500px;
-  width: 800px;
+  width: 750px;
   margin: 20px;
   padding: 45px;
   text-align: center;
@@ -335,4 +355,51 @@ body {
 .btn-large:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .data-bar {
+    flex-direction: column;
+    padding: 20px;
+    gap: 25px;
+  }
+
+  .data-left p {
+    width: 100%;
+    height: auto; 
+    font-size: 24px;
+    padding: 30px;
+  }
+
+  .buttons-right {
+    width: 100%;
+  }
+
+  .btn-small,
+  .btn-large {
+    width: 80%;  
+    max-width: 500px; 
+    height: auto;
+    padding: 25px;
+    font-size: 26px; 
+  }
+}
+
+/* Pantallas chicas  */
+@media (max-width: 768px) {
+  .btn-small,
+  .btn-large {
+    font-size: 22px;
+    padding: 18px;
+  }
+
+  .data-left p {
+    font-size: 20px;
+  }
 }

@@ -75,15 +75,15 @@ export default function Home() {
     <div>
       {/* Navbar*/}
       <nav
-        className="navbar navbar-expand-lg fixed-top custom-navbar"
+        className="navbarHome"
         style={{
           backgroundColor: "rgba(164, 207, 205, 0.85)",
           backdropFilter: "blur(6px)",
         }}
       >
-        <div className="container-fluid px-4">
+        <div className="container-fluid px-4 d-flex align-items-center justify-content-between">
           <a className="navbar-brand d-flex align-items-center" href="#inicio">
-            <img src={logo} alt="GreenPoint" height="180" />
+            <img src={logo} alt="GreenPoint" height="110" />
           </a>
 
           <button
